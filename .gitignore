@@ -478,5 +478,5 @@ $RECYCLE.BIN/
 API/appsettings.json
 
 #DB files
-*.db-shm
-*.db-wal
+datingapp.db-shm
+datingapp.db-wal
