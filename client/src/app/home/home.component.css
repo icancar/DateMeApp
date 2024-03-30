@@ -1,0 +1,17 @@
+.form-signin {
+    max-width: 330 px;
+    padding: 1 rem;
+}
+
+.m-auto {
+    margin: auto !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
