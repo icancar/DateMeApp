@@ -2,14 +2,17 @@
     <div class="container-xl">
       <a class="navbar-brand" href="#">Date me!</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Users</a>
-          </li>
+            <li class="nav-item">
+                <a class="nav-link">Matches</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Lists</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Messages</a>
+              </li>
         </ul>
-        <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+        <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off" *ngIf="!loggedIn">
           <input 
             name="username" 
             [(ngModel)]="model.UserName" 
@@ -24,5 +27,14 @@
             class="form-control me-2">
           <button type="submit" class="btn btn-primary">LogIn</button>
         </form>
+        <div class="dropdown" *ngIf="loggedIn" dropdown>
+            <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle data-bs-toggle="dropdown">Welcome user</a>
+            <div class="dropdown-menu" *dropdownMenu>
+              <a class="dropdown-item">Edit Profile</a>
+              <a class="dropdown-item">Logout</a>
+            </div>
+          </div>
     </div>
+
+    
   </nav>
