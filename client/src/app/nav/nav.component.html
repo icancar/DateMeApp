@@ -12,14 +12,14 @@
         <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
           <input 
             name="username" 
-            [(ngModel)]="model.username" 
+            [(ngModel)]="model.UserName" 
             type="text" 
             placeholder="Username"
             class="form-control me-2">
           <input 
             type="password" 
-            name="password" 
-            [(ngModel)]="model.password" 
+            name="Password" 
+            [(ngModel)]="model.Password" 
             placeholder="Password"
             class="form-control me-2">
           <button type="submit" class="btn btn-primary">LogIn</button>
