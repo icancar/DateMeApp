@@ -22,7 +22,9 @@ export class NavComponent {
   login() {
     console.log(this.model)
     this.accountService.login(this.model).subscribe({
-      next: () => this.router.navigateByUrl('/members'),
+      next: () => {
+        this.toastr.success("LogIn successfull!");
+        this.router.navigateByUrl('/members')},
       error: err => {
         console.log(err);
         this.toastr.error(err.error);
