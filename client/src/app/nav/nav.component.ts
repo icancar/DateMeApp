@@ -32,6 +32,7 @@ export class NavComponent {
 
   logout() {
     this.accountService.logout();
+    this.toastr.success("Successful log-out!")
     this.router.navigateByUrl('/');
   }
 }
