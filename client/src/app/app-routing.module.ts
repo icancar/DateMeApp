@@ -5,9 +5,11 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { MessagesComponent } from './messages/messages.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { authGuard } from './_guards/auth.guard';
+import { TestErrorComponent } from './errors/test-error/test-error.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
+  {path: 'test-errors', component: TestErrorComponent},
   {path: '',
    runGuardsAndResolvers: 'always',
    canActivate:[authGuard],
