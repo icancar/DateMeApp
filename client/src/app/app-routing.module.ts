@@ -6,6 +6,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { authGuard } from './_guards/auth.guard';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
+import { ListsComponent } from './lists/lists.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -14,9 +15,10 @@ const routes: Routes = [
    runGuardsAndResolvers: 'always',
    canActivate:[authGuard],
    children: [
-    {path: 'member/:id', component: MemberDetailComponent, canActivate:[authGuard]},
-    {path: 'members', component: MemberListComponent, canActivate:[authGuard]},
-    {path: 'messages', component: MessagesComponent, canActivate:[authGuard]}
+    {path: 'member/:id', component: MemberDetailComponent},
+    {path: 'members', component: MemberListComponent},
+    {path: 'messages', component: MessagesComponent},
+    {path: 'lists', component: ListsComponent}
    ]
   },
   {path: '**', component: HomeComponent}
