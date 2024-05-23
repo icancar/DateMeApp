@@ -10,20 +10,21 @@ namespace API.Controllers
     [Authorize]
     public class UsersController : BaseApiController
     {
-        private readonly DataContext _context;
-        public UsersController(DataContext context) {
-            _context = context;
+        private readonly IUserRepository userRepository;
+
+        public UsersController(IUserRepository userRepository) {
+            this.userRepository = userRepository;
         }
 
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() {
-            return await _context.Users.ToListAsync();
+            return Ok(await userRepository.GetUsersAsync());
         }
 
         [HttpGet("{username}")]
         public async Task<ActionResult<AppUser>> GetUser(string username){
-            return await _context.Users.FirstOrDefaultAsync(x => x.UserName == username);
+            return await userRepository.GetUserByUsername(username);
         }
     }
 }
