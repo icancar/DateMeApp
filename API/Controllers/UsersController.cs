@@ -33,7 +33,7 @@ namespace API.Controllers
         public async Task<ActionResult<MemberDTO>> GetUser(string username){
             var user = await userRepository.GetMemberByUsernameAsync(username);
 
-            return user;
+            return Ok(user);
         }
     }
 }
