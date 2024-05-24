@@ -19,12 +19,16 @@ public class UserRepository : IUserRepository
 
     public async Task<AppUser> GetUserByUsername(string username)
     {
-        return await context.Users.FirstOrDefaultAsync(x=> x.UserName == username);
+        return await context.Users
+                            .Include (p => p.Photos)
+                            .FirstOrDefaultAsync(x=> x.UserName == username);
     }
 
     public async Task<IEnumerable<AppUser>> GetUsersAsync()
     {
-        return await context.Users.ToListAsync();
+        return await context.Users
+                            .Include(p => p.Photos)
+                            .ToListAsync();
     }
 
     public async Task<bool> SaveAllAsync()
